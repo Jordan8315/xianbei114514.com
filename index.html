@@ -13,32 +13,64 @@
     body{
       background-image: url('https://www.homo-114514.xyz/homo.jpeg');
     }
+    .navindex{
+        position: fixed;
+        bottom: 0px; 
+        background-color:#fff;
+        width:100%
+    }
 </style>
 
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-
-          <a class="navbar-brand">
-            <img src="https://www.homo-114514.xyz/youya.jpeg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            下北泽野兽株式会社</a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">下北泽野兽株式会社</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="https://www.homo-114514.xyz/youya.jpeg">Homo商城</a>
+          <a class="nav-link active" aria-current="page" href="https://space.bilibili.com/44454784">猪战士历险记</a>
+          <a class="nav-link active" aria-current="page" href="https://space.bilibili.com/182350710">黎鲜贝</a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
 
-<div style="margin-top: 200px;margin-left: auto;margin-right: auto; height: 50px;width: 300px;">
+  <audio autoplay controls id="music" height="0" width="0" hidden="ture">
+    <source src="res/music/music.mp3" type="audio/mpeg">
+  </audio>
 
-
-   <span class="badge text-bg-success">下北泽驰名商标</span>
-   <span class="badge text-bg-success">野兽王不动产无限公司</span>
-   <span class="badge text-bg-success">下北泽生物化学研究所</span>
-   <span class="badge text-bg-success">完全会员制</span>
-   <span class="badge text-bg-success">野兽帝国</span>
-    <br>
-
-    <a class="btn btn-primary rounded mx-auto d-block"  href="https://114514.store/">homo商城</a>
-</div>
 <script src="https://status.socomic.net/core.js"></script>
+<ul class="nav navindex">
+  <li class="nav-item">
+  <a class="nav-link" href="https://114514.store/partnersites.html"><span class="badge text-bg-success">下北泽驰名商标</span>
+    <span class="badge text-bg-success">野兽王不动产无限公司</span>
+    <span class="badge text-bg-success">下北泽生物化学研究所</span>
+    <span class="badge text-bg-success">完全会员制</span>
+    <span class="badge text-bg-success">野兽帝国</span></a>
+
+</li>
+</ul>
+
+  <script type="text/javascript">
+    window.onload = function(){
+             setInterval("toggleSound()",100);
+        }
+
+    function toggleSound() {
+                var music = document.getElementById("music");//获取ID  
+                    
+                if (music.paused) { //判读是否播放  
+                    music.paused=false;
+                    music.play(); //没有就播放 
+                }    
+        }
+</script>
+
+
 </body>
 </html>
