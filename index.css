@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url('https://114514.store/homo.jpeg');
+}
+
+.navindex {
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff;
+    width: 100%
+}
