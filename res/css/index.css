@@ -4,12 +4,28 @@
 }
 
 body {
-    background-image: url('https://114514.store/homo.jpeg');
+    /* 假设图片放在本地 res/img 目录下 */
+    background-image: url('../img/homo.jpeg'); 
 }
 
 .navindex {
     position: fixed;
     bottom: 0px;
     background-color: #fff;
-    width: 100%
+    width: 100%;
+}* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* 假设图片放在本地 res/img 目录下 */
+    background-image: url('https://114514.store/homo.jpeg'); 
+}
+
+.navindex {
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff;
+    width: 100%;
 }
