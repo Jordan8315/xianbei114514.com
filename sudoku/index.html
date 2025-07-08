@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
 <html lang="zh-CN">
 
 <head>
@@ -92,7 +96,11 @@
                             <select id="difficulty"
                                 class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50">
                                 <option value="easy">简单</option>
+<<<<<<< HEAD
                                 <option value="medium" selected="">中等</option>
+=======
+                                <option value="medium" selected>中等</option>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                                 <option value="hard">困难</option>
                                 <option value="expert">专家</option>
                             </select>
@@ -129,7 +137,11 @@
                                 <span>点击"清除"按钮删除当前选中单元格的数字</span>
                             </li>
                             <li class="flex items-start">
+<<<<<<< HEAD
                                 <i class="fa fa-lightbulb-o text-secondary mt-1 mr-2"></i>
+=======
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                                 <span>点击"提示"按钮获取一个正确数字</span>
                             </li>
                         </ul>
@@ -151,20 +163,35 @@
                         <h2 class="text-xl font-bold text-dark flex items-center">
                             <i class="fa fa-th text-primary mr-2"></i>数独棋盘
                         </h2>
+<<<<<<< HEAD
                         <div class="flex space-x-2" id="top-buttons">
+=======
+                        <div class="flex space-x-2">
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                             <button id="clear"
                                 class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg font-medium btn-hover">
                                 <i class="fa fa-eraser mr-1"></i>清除
                             </button>
                             <button id="hint"
                                 class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-medium btn-hover">
+<<<<<<< HEAD
                                 <i class="fa fa-lightbulb text-white mr-1"></i>提示
+=======
+                                <i class="fa fa-lightbulb-o mr-1"></i>提示
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                             </button>
                             <button id="solve"
                                 class="bg-secondary hover:bg-secondary/90 text-white py-2 px-4 rounded-lg font-medium btn-hover">
                                 <i class="fa fa-magic mr-2"></i>显示答案
                             </button>
+<<<<<<< HEAD
                             <!-- 移除了检查按钮 -->
+=======
+                            <button id="check"
+                                class="bg-accent hover:bg-accent/90 text-white py-2 px-4 rounded-lg font-medium btn-hover">
+                                <i class="fa fa-check mr-1"></i>检查
+                            </button>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                         </div>
                     </div>
 
@@ -194,10 +221,16 @@
                                 <p id="result-message" class="text-gray-600 mb-6"></p>
                                 <div class="flex space-x-3 justify-center">
                                     <button id="play-again"
+<<<<<<< HEAD
                                         class="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg font-medium btn-hover">再玩一次</button>
                                     <!-- 添加关闭按钮 -->
                                     <button id="close-modal"
                                         class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-medium btn-hover">关闭</button>
+=======
+                                        class="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg font-medium btn-hover">
+                                        再玩一次
+                                    </button>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                                 </div>
                             </div>
                         </div>
@@ -380,12 +413,17 @@
                 // 开始计时
                 startTimer();
 
+<<<<<<< HEAD
                 // 显示顶部按钮和数字键盘
                 document.getElementById('top-buttons').classList.remove('hidden');
                 document.getElementById('number-pad').classList.remove('hidden');
 
                 // 隐藏结果弹窗
                 //hideResultModal();
+=======
+                // 隐藏结果弹窗
+                hideResultModal();
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
             }
 
             // 生成完整的数独解
@@ -632,6 +670,45 @@
                 timer = null;
             }
 
+<<<<<<< HEAD
+=======
+            // 检查答案
+            function checkSolution() {
+                if (!gameStarted) return;
+
+                const rows = document.getElementById('rows').value;
+                const cols = document.getElementById('cols').value;
+
+                let hasError = false;
+
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        const cell = document.getElementById(`cell-${i}-${j}`);
+
+                        // 跳过预填的单元格
+                        if (cell.classList.contains('text-gray-800')) continue;
+
+                        // 检查非空单元格
+                        if (puzzle[i][j] !== 0) {
+                            if (puzzle[i][j] !== solution[i][j]) {
+                                cell.classList.add('cell-error');
+                                hasError = true;
+                            } else {
+                                cell.classList.remove('cell-error');
+                            }
+                        }
+                    }
+                }
+
+                // 如果没有错误，检查是否完成
+                if (!hasError && checkGameCompletion()) {
+                    showResultModal(true);
+                } else if (hasError) {
+                    showResultModal(false);
+                }
+            }
+
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
             // 显示结果弹窗
             function showResultModal(isSuccess) {
                 const modal = document.getElementById('result-modal');
@@ -644,6 +721,14 @@
                     title.textContent = '恭喜你！';
                     title.className = 'text-2xl font-bold mb-2 text-secondary';
                     message.textContent = `你完成了${document.getElementById('rows').value}x${document.getElementById('cols').value}数独游戏，用时 ${Math.floor(timeElapsed / 60)} 分 ${timeElapsed % 60} 秒。`;
+<<<<<<< HEAD
+=======
+                } else {
+                    icon.className = 'fa fa-times-circle text-6xl text-red-500 mb-4';
+                    title.textContent = '再试一次';
+                    title.className = 'text-2xl font-bold mb-2 text-red-600';
+                    message.textContent = '你的答案中包含错误，请检查后继续。';
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                 }
 
                 // 显示弹窗并添加动画
@@ -662,10 +747,13 @@
                 modal.querySelector('div').classList.remove('scale-100');
                 modal.querySelector('div').classList.add('scale-95');
 
+<<<<<<< HEAD
                 // 隐藏顶部按钮和数字键盘
                 document.getElementById('top-buttons').classList.add('hidden');
                 document.getElementById('number-pad').classList.add('hidden');
 
+=======
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
                 setTimeout(() => {
                     modal.classList.add('hidden');
                 }, 300);
@@ -682,9 +770,14 @@
             });
             document.getElementById('hint').addEventListener('click', showHint);
             document.getElementById('solve').addEventListener('click', showSolution);
+<<<<<<< HEAD
             document.getElementById('play-again').addEventListener('click', generateNewGame);
             // 为关闭按钮添加点击事件监听器
             document.getElementById('close-modal').addEventListener('click', hideResultModal);
+=======
+            document.getElementById('check').addEventListener('click', checkSolution);
+            document.getElementById('play-again').addEventListener('click', generateNewGame);
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
 
             // 初始化游戏
             generateNewGame();
@@ -692,4 +785,8 @@
     </script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 0a4af006ad2250809ad78aad3f4d46613cba480a
