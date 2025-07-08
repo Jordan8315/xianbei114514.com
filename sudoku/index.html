@@ -223,6 +223,7 @@
             let timeElapsed = 0; // 已用时间（秒）
             let gameStarted = false; // 游戏是否已开始
             let gridSize = 9; // 默认9x9网格
+            let highlight = 1; //高亮
 
             // 初始化数独棋盘
             function initializeBoard(rows = 9, cols = 9) {
@@ -301,7 +302,7 @@
                 }
 
                 // 高亮新选中的单元格
-                if (selectedCell) {
+                if (selectedCell && highlight == 1) {
                     selectedCell.classList.add('cell-selected');
 
                     // 移除所有高亮
@@ -346,6 +347,10 @@
                 const rows = parseInt(document.getElementById('rows').value) || 9;
                 const cols = parseInt(document.getElementById('cols').value) || 9;
 
+                if (highlight == 0) {
+                    highlight = 1
+                }
+
                 if (rows < 3 || rows > 9 || cols < 3 || cols > 9) {
                     alert('请输入3-9之间的行数和列数');
                     return;
@@ -383,9 +388,6 @@
                 // 显示顶部按钮和数字键盘
                 document.getElementById('top-buttons').classList.remove('hidden');
                 document.getElementById('number-pad').classList.remove('hidden');
-
-                // 隐藏结果弹窗
-                //hideResultModal();
             }
 
             // 生成完整的数独解
@@ -640,6 +642,12 @@
                 const message = document.getElementById('result-message');
 
                 if (isSuccess) {
+                    document.querySelectorAll('.cell-highlight').forEach(cell => {
+                        cell.classList.remove('cell-highlight');
+                    });
+                    renderPuzzle(rows, cols)
+                    progress = 100;
+                    document.getElementById('progress').textContent = `${progress}%`;
                     icon.className = 'fa fa-trophy text-6xl text-accent mb-4';
                     title.textContent = '恭喜你！';
                     title.className = 'text-2xl font-bold mb-2 text-secondary';
@@ -657,6 +665,7 @@
 
             // 隐藏结果弹窗
             function hideResultModal() {
+                highlight = 0;
                 const modal = document.getElementById('result-modal');
                 modal.classList.remove('opacity-100');
                 modal.querySelector('div').classList.remove('scale-100');
